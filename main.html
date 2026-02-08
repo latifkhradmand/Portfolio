@@ -1,0 +1,1388 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Latif Khradmand | Dev. Studio</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            custom: {
+              blue: '#4584b6',
+              yellow: '#ffde57',
+              dark: '#646464',
+              'dark-bg': '#0a0a0a',
+              'light-bg': '#f9fafb'
+            }
+          },
+          animation: {
+            'slide-in': 'slideIn 0.5s ease-out',
+            'fade-in': 'fadeIn 0.7s ease-in',
+            'float': 'float 6s ease-in-out infinite',
+            'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+            'checkmark': 'checkmark 0.5s ease-out forwards',
+            'blob': 'blob 15s infinite'
+          },
+          keyframes: {
+            slideIn: {
+              '0%': { transform: 'translateX(-100%)', opacity: '0' },
+              '100%': { transform: 'translateX(0)', opacity: '1' }
+            },
+            fadeIn: {
+              '0%': { opacity: '0' },
+              '100%': { opacity: '1' }
+            },
+            float: {
+              '0%, 100%': { transform: 'translateY(0)' },
+              '50%': { transform: 'translateY(-10px)' }
+            },
+            pulse: {
+              '0%, 100%': { opacity: 1 },
+              '50%': { opacity: .5 }
+            },
+            checkmark: {
+              '0%': { transform: 'scale(0.5)', opacity: 0 },
+              '100%': { transform: 'scale(1)', opacity: 1 }
+            },
+            blob: {
+              '0%, 100%': { transform: 'translate(0, 0) scale(1)' },
+              '25%': { transform: 'translate(20px, -10px) scale(1.1)' },
+              '50%': { transform: 'translate(10px, 20px) scale(0.9)' },
+              '75%': { transform: 'translate(-15px, 10px) scale(1.05)' }
+            }
+          },
+          fontFamily: {
+            'python': ['"Fira Code"', 'monospace']
+          },
+          backgroundImage: {
+            'grid': 'linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px)',
+            'gradient-radial': 'radial-gradient(ellipse at center, rgba(69,132,182,0.15) 0%, rgba(255,222,87,0.05) 70%, transparent 100%)'
+          },
+          backgroundSize: {
+            'grid-size': '20px 20px'
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="assets/style/style.css">
+</head>
+<body class="bg-[#0a0a0a] text-gray-300">
+  <!-- Loader Animation -->
+  <div id="loader" class="loader fixed inset-0 z-[9999] bg-[#0a0a0a] flex items-center justify-center">
+    <div class="loader-content text-center">
+      <div class="loader-spinner w-16 h-16 border-4 border-[#4584b6]/30 border-t-[#4584b6] rounded-full animate-spin mx-auto mb-6"></div>
+      <h2 class="text-2xl md:text-3xl font-bold mb-2 text-custom-blue">Loading....</h2>
+      <p class="text-gray-400">Crafting your experience...</p>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header class="fixed w-full z-50 py-4 px-6 md:px-12 header-shadow bg-[#0a0a0a]/90 backdrop-blur-sm">
+    <div class="container mx-auto max-w-7xl flex justify-between items-center">
+      <div class="flex items-center space-x-2">
+        <div class="w-10 h-10 rounded-full  flex items-center justify-center text-white font-bold text-lg">
+          <img src="/logo.png" alt="">
+        </div>
+        <span class="text-xl font-bold text-custom-blue hidden md:block">LK. Dev. Studio</span>
+        <span class="text-xl font-bold text-custom-blue md:hidden">LK.Dev.S.</span>
+      </div>
+      
+      <nav class="desktop-nav md:flex space-x-8">
+        <a href="#hero" class="font-medium hover:text-custom-blue transition">Home</a>
+        <a href="#about" class="font-medium hover:text-custom-blue transition">About</a>
+        <a href="#experience" class="font-medium hover:text-custom-blue transition">Experience</a>
+        <a href="#projects" class="font-medium hover:text-custom-blue transition">Projects</a>
+        <a href="#contact" class="font-medium hover:text-custom-blue transition">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section id="hero" class="hero-bg text-gray-300 pt-32 pb-16 md:pt-40 md:pb-32 relative">
+    <div class="absolute inset-0 overflow-hidden z-0">
+      <div class="blob"></div>
+      <div class="blob"></div>
+      <div class="blob"></div>
+    </div>
+    <div class="container mx-auto px-4 max-w-7xl relative z-10">
+      <div class="flex flex-col md:flex-row items-center">
+        <!-- Left Section - Title -->
+        <div class="w-full md:w-1/2 mb-8 md:mb-0 md:pr-8 hero-content">
+          <div class="space-y-5 animate-fade-in">
+            <div class="flex items-center justify-center md:justify-start space-x-3 mb-4">
+              <div class="w-3 h-3 rounded-full bg-custom-yellow"></div>
+              <div class="w-3 h-3 rounded-full bg-custom-dark"></div>
+              <div class="w-3 h-3 rounded-full bg-custom-blue"></div>
+              <span class="text-sm font-mono text-gray-400 hidden md:block">@latifkhradmand</span>
+            </div>
+            <h1 class="hero-title text-3xl md:text-4xl lg:text-5xl font-bold leading-tight text-custom-yellow">
+              I am a web developer, and a programmer.
+            </h1>
+            <div class="typing-container">
+              <p class="text-lg md:text-xl text-gray-300 max-w-lg mx-auto md:mx-0 typing" id="typingText">
+                Crafting elegant solutions to complex problems with clean, efficient code.
+              </p>
+            </div>
+            <p class="text-gray-400 mt-3 max-w-lg mx-auto md:mx-0 text-center md:text-left">
+              “Focused on modern web development and user-centered design, aiming to create simple, practical, and reliable digital experiences with close attention to detail and execution quality.”             </p>
+            <div class="flex flex-wrap justify-center md:justify-start gap-3 md:gap-4 mt-6 hero-buttons">
+              <a href="#projects" class="btn-primary text-white font-medium py-2.5 px-6 md:py-3.5 md:px-8 rounded-lg transition duration-300 transform hover:scale-105 shadow-lg flex items-center justify-center w-full md:w-auto">
+                <i class="fas fa-briefcase mr-2"></i> View My Work
+              </a>
+              <a href="#contact" class="btn-secondary text-gray-900 font-medium py-2.5 px-6 md:py-3.5 md:px-8 rounded-lg transition duration-300 transform hover:scale-105 shadow-lg flex items-center justify-center w-full md:w-auto">
+                <i class="fas fa-envelope mr-2"></i> Contact Me
+              </a>
+            </div>
+            
+            <div class="mt-8 pt-6 border-t border-gray-800 hero-stats">
+              <div class="flex items-center justify-center md:justify-start space-x-3 md:space-x-4">
+                <div class="flex -space-x-2">
+                  <div class="w-10 h-10 rounded-full bg-blue-500/20 border border-blue-500 flex items-center justify-center text-blue-300 font-bold text-sm">J</div>
+                  <div class="w-10 h-10 rounded-full bg-green-500/20 border border-green-500 flex items-center justify-center text-green-300 font-bold text-sm">A</div>
+                  <div class="w-10 h-10 rounded-full bg-purple-500/20 border border-purple-500 flex items-center justify-center text-purple-300 font-bold text-sm">M</div>
+                  <div class="w-10 h-10 rounded-full bg-yellow-500/20 border border-yellow-500 flex items-center justify-center text-yellow-300 font-bold text-sm">E</div>
+                </div>
+                <div class="hidden md:block">
+                  <p class="font-medium text-sm md:text-base">Trusted by 50+ clients worldwide</p>
+                  <p class="text-xs md:text-sm text-gray-500">Delivering pixel-perfect solutions since 2025</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Right Section - Project Slider -->
+        <div class="w-full md:w-1/2 project-slider-container">
+          <div class="bg-gray-900 rounded-xl md:rounded-2xl shadow-2xl overflow-hidden border border-gray-800 animate-slide-in">
+            <div class="relative overflow-hidden">
+              <div id="slideContainer" class="slide-container">
+                <!-- Slide 1 -->
+                <div class="slide">
+                  <div class="project-card bg-gray-900 p-4 md:p-6">
+                    <div class="flex justify-between items-start mb-3 md:mb-5">
+                      <div>
+                        <span class="inline-block px-2 py-1 md:px-3 md:py-1 bg-blue-900/30 text-blue-300 rounded-full text-xs md:text-sm font-medium">React</span>
+                        <span class="inline-block px-2 py-1 md:px-3 md:py-1 bg-purple-900/30 text-purple-300 rounded-full text-xs md:text-sm font-medium ml-1 md:ml-2 mt-1 md:mt-0">Node.js</span>
+                      </div>
+                      <div class="flex space-x-1 md:space-x-2">
+                        <div class="w-2 h-2 md:w-3 md:h-3 rounded-full bg-custom-yellow"></div>
+                        <div class="w-2 h-2 md:w-3 md:h-3 rounded-full bg-custom-dark"></div>
+                        <div class="w-2 h-2 md:w-3 md:h-3 rounded-full bg-custom-blue"></div>
+                      </div>
+                    </div>
+                    <div class="bg-gray-800 border-2 border-dashed rounded-lg md:rounded-xl h-40 md:h-[300px] mb-3 md:mb-5 flex items-center justify-center overflow-hidden relative">
+                      <div class="text-blue-400 text-4xl md:text-5xl mb-1 md:mb-2">
+                        <img class="w-full h-full object-cover" src="/assets/images/Fashion Shopify Themes_ Design Your Brand_.jfif" alt="Fashion Shopify Theme">
+                      </div>
+                    </div>
+                    <h3 class="text-xl md:text-2xl font-bold text-white mb-1 md:mb-2">Fashion Shopify Themes</h3>
+                    <p class="text-gray-400 text-sm md:text-base mb-3 md:mb-5">Customizable Shopify themes for fashion retailers with responsive design and seamless integration.</p>
+                    <div class="flex justify-between items-center">
+                      <div class="flex -space-x-1 md:-space-x-2">
+                        <div class="w-8 h-8 md:w-9 md:h-9 rounded-full bg-blue-500/20 border border-blue-500 flex items-center justify-center text-blue-300 font-bold text-xs md:text-sm">JD</div>
+                        <div class="w-8 h-8 md:w-9 md:h-9 rounded-full bg-green-500/20 border border-green-500 flex items-center justify-center text-green-300 font-bold text-xs md:text-sm">AK</div>
+                        <div class="w-8 h-8 md:w-9 md:h-9 rounded-full bg-yellow-500/20 border border-yellow-500 flex items-center justify-center text-yellow-300 font-bold text-xs md:text-sm">MS</div>
+                      </div>
+                      <div class="flex space-x-2 md:space-x-3">
+                        <button class="flex items-center text-xs md:text-sm text-blue-400 hover:text-blue-300 transition">
+                          <i class="fas fa-external-link-alt mr-1 text-xs"></i> <span class="hidden md:inline">Live Demo</span>
+                        </button>
+                        <button class="flex items-center text-xs md:text-sm text-gray-400 hover:text-gray-300 transition">
+                          <i class="fab fa-github mr-1 text-xs"></i> <span class="hidden md:inline">Source</span>
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
+                <!-- Slide 2 -->
+                <div class="slide">
+                  <div class="project-card bg-gray-900 p-4 md:p-6">
+                    <div class="flex justify-between items-start mb-3 md:mb-5">
+                      <div>
+                        <span class="inline-block px-2 py-1 md:px-3 md:py-1 bg-green-900/30 text-green-300 rounded-full text-xs md:text-sm font-medium">Python</span>
+                        <span class="inline-block px-2 py-1 md:px-3 md:py-1 bg-yellow-900/30 text-yellow-300 rounded-full text-xs md:text-sm font-medium ml-1 md:ml-2 mt-1 md:mt-0">Django</span>
+                      </div>
+                      <div class="flex space-x-1 md:space-x-2">
+                        <div class="w-2 h-2 md:w-3 md:h-3 rounded-full bg-custom-yellow"></div>
+                        <div class="w-2 h-2 md:w-3 md:h-3 rounded-full bg-custom-dark"></div>
+                        <div class="w-2 h-2 md:w-3 md:h-3 rounded-full bg-custom-blue"></div>
+                      </div>
+                    </div>
+                    <div class="bg-gray-800 border-2 border-dashed rounded-lg md:rounded-xl h-40 md:h-[300px] mb-3 md:mb-5 flex items-center justify-center overflow-hidden relative">
+                      <div class="text-blue-400 text-4xl md:text-5xl mb-1 md:mb-2">
+                        <img class="w-full h-full object-cover" src="/assets/images/E- learning landing page.jfif" alt="Fashion Shopify Theme">
+                      </div>
+                    </div>
+                    <h3 class="text-xl md:text-2xl font-bold text-white mb-1 md:mb-2">E-Learning Platform</h3>
+                    <p class="text-gray-400 text-sm md:text-base mb-3 md:mb-5">An interactive online learning platform with course management, user progress tracking, and multimedia content delivery.</p>
+                    <div class="flex justify-between items-center">
+                      <div class="flex -space-x-1 md:-space-x-2">
+                        <div class="w-8 h-8 md:w-9 md:h-9 rounded-full bg-purple-500/20 border border-purple-500 flex items-center justify-center text-purple-300 font-bold text-xs md:text-sm">RP</div>
+                        <div class="w-8 h-8 md:w-9 md:h-9 rounded-full bg-pink-500/20 border border-pink-500 flex items-center justify-center text-pink-300 font-bold text-xs md:text-sm">TL</div>
+                      </div>
+                      <div class="flex space-x-2 md:space-x-3">
+                        <button class="flex items-center text-xs md:text-sm text-green-400 hover:text-green-300 transition">
+                          <i class="fas fa-external-link-alt mr-1 text-xs"></i> <span class="hidden md:inline">Live Demo</span>
+                        </button>
+                        <button class="flex items-center text-xs md:text-sm text-gray-400 hover:text-gray-300 transition">
+                          <i class="fab fa-github mr-1 text-xs"></i> <span class="hidden md:inline">Source</span>
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
+                <!-- Slide 3 -->
+                <div class="slide">
+                  <div class="project-card bg-gray-900 p-4 md:p-6">
+                    <div class="flex justify-between items-start mb-3 md:mb-5">
+                      <div>
+                        <span class="inline-block px-2 py-1 md:px-3 md:py-1 bg-pink-900/30 text-pink-300 rounded-full text-xs md:text-sm font-medium">Vue.js</span>
+                        <span class="inline-block px-2 py-1 md:px-3 md:py-1 bg-indigo-900/30 text-indigo-300 rounded-full text-xs md:text-sm font-medium ml-1 md:ml-2 mt-1 md:mt-0">Firebase</span>
+                      </div>
+                      <div class="flex space-x-1 md:space-x-2">
+                        <div class="w-2 h-2 md:w-3 md:h-3 rounded-full bg-custom-yellow"></div>
+                        <div class="w-2 h-2 md:w-3 md:h-3 rounded-full bg-custom-dark"></div>
+                        <div class="w-2 h-2 md:w-3 md:h-3 rounded-full bg-custom-blue"></div>
+                      </div>
+                    </div>
+                    <div class="bg-gray-800 border-2 border-dashed rounded-lg md:rounded-xl h-40 md:h-[300px] mb-3 md:mb-5 flex items-center justify-center overflow-hidden relative">
+                      <div class="text-blue-400 text-4xl md:text-5xl mb-1 md:mb-2">
+                        <img class="w-full h-full object-cover" src="/assets/images/Browse thousands of Library Logo images for design inspiration.jfif" alt="Fashion Shopify Theme">
+                      </div>
+                    </div>
+                    <h3 class="text-xl md:text-2xl font-bold text-white mb-1 md:mb-2">Library Management System</h3>
+                    <p class="text-gray-400 text-sm md:text-base mb-3 md:mb-5">A comprehensive system for managing library resources, including book inventory, user management, and borrowing tracking.</p>
+                    <div class="flex justify-between items-center">
+                      <div class="flex -space-x-1 md:-space-x-2">
+                        <div class="w-8 h-8 md:w-9 md:h-9 rounded-full bg-amber-500/20 border border-amber-500 flex items-center justify-center text-amber-300 font-bold text-xs md:text-sm">KM</div>
+                        <div class="w-8 h-8 md:w-9 md:h-9 rounded-full bg-emerald-500/20 border border-emerald-500 flex items-center justify-center text-emerald-300 font-bold text-xs md:text-sm">SJ</div>
+                      </div>
+                      <div class="flex space-x-2 md:space-x-3">
+                        <button class="flex items-center text-xs md:text-sm text-amber-400 hover:text-amber-300 transition">
+                          <i class="fas fa-external-link-alt mr-1 text-xs"></i> <span class="hidden md:inline">Live Demo</span>
+                        </button>
+                        <button class="flex items-center text-xs md:text-sm text-gray-400 hover:text-gray-300 transition">
+                          <i class="fab fa-github mr-1 text-xs"></i> <span class="hidden md:inline">Source</span>
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              <!-- Navigation Buttons -->
+              <button id="prevBtn" class="carousel-nav left-1 md:left-2">
+                <span><i class="fas fa-chevron-left"></i></span>
+              </button>
+              <button id="nextBtn" class="carousel-nav right-1 md:right-2">
+                <span><i class="fas fa-chevron-right"></i></span>
+              </button>
+            </div>
+            
+            <!-- Dots Indicator -->
+            <div class="flex justify-center py-3 md:py-4 bg-gray-800 border-t border-gray-700">
+              <div id="dotsContainer" class="flex space-x-2">
+                <span class="dot active" data-index="0"></span>
+                <span class="dot" data-index="1"></span>
+                <span class="dot" data-index="2"></span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="py-16 md:py-20 bg-[#151515] relative overflow-hidden">
+    <div class="absolute inset-0 bg-grid opacity-5"></div>
+    <div class="container mx-auto px-4 max-w-7xl relative z-10">
+      <div class="text-center mb-12 md:mb-16 max-w-3xl mx-auto">
+        <h2 class="section-title text-3xl md:text-4xl font-bold mb-4 md:mb-6 text-custom-yellow">
+          About Me
+        </h2>
+        <p class="section-subtitle text-lg md:text-xl text-gray-400">
+          A passionate developer with a love for clean code and elegant solutions
+        </p>
+      </div>
+      
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 md:gap-16 items-center">
+        <div class="space-y-6 md:space-y-8">
+          <div class="bg-gray-900 border border-gray-800 rounded-xl md:rounded-2xl p-6 md:p-8">
+            <div class="flex items-start">
+              <div class="mt-1 mr-3 md:mr-4 text-custom-blue">
+                <i class="fas fa-quote-left text-2xl md:text-3xl opacity-30"></i>
+              </div>
+              <div>
+                <p class="text-lg md:text-xl italic text-gray-300 mb-4 md:mb-6">
+                  "I believe that code should not only solve problems but also be a pleasure to read and maintain. Clean architecture and thoughtful design are at the heart of everything I build."
+                </p>
+                <div class="flex items-center">
+                  <div class="w-14 h-14 md:w-16 md:h-16 rounded-full bg-custom-blue flex items-center justify-center text-white font-bold text-lg md:text-xl mr-3 md:mr-4">
+                    <img class="w-full h-full rounded-full object-cover" src="/assets/images/me.jpg" alt="">
+                  </div>
+                  <div>
+                    <p class="font-bold text-base md:text-lg">Latif Khradmand</p>
+                    <p class="text-gray-400 text-sm md:text-base">Junior Web Developer</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="grid grid-cols-2 gap-4 md:gap-6">
+            <div class="bg-gray-900 border border-gray-800 rounded-lg md:rounded-xl p-4 md:p-6 text-center">
+              <div class="text-3xl md:text-4xl font-bold text-custom-blue mb-1 md:mb-2">3+</div>
+              <p class="text-gray-400 text-sm md:text-base">Months Experience</p>
+            </div>
+            <div class="bg-gray-900 border border-gray-800 rounded-lg md:rounded-xl p-4 md:p-6 text-center">
+              <div class="text-3xl md:text-4xl font-bold text-custom-yellow mb-1 md:mb-2">2+</div>
+              <p class="text-gray-400 text-sm md:text-base">Projects Completed</p>
+            </div>
+            <div class="bg-gray-900 border border-gray-800 rounded-lg md:rounded-xl p-4 md:p-6 text-center">
+              <div class="text-3xl md:text-4xl font-bold text-purple-400 mb-1 md:mb-2">15+</div>
+              <p class="text-gray-400 text-sm md:text-base">Happy Clients</p>
+            </div>
+            <div class="bg-gray-900 border border-gray-800 rounded-lg md:rounded-xl p-4 md:p-6 text-center">
+              <div class="text-3xl md:text-4xl font-bold text-green-400 mb-1 md:mb-2">24/7</div>
+              <p class="text-gray-400 text-sm md:text-base">Support</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="space-y-6 md:space-y-8">
+          <div>
+            <h3 class="text-xl md:text-2xl font-bold mb-3 md:mb-4 text-custom-yellow">My Journey</h3>
+            <p class="text-gray-300 mb-3 md:mb-4">
+              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Hic accusantium dolores cum ducimus doloribus minus eum necessitatibus mollitia nulla ab. Eveniet rem iste deserunt quasi minima minus dignissimos aspernatur molestiae!
+            </p>
+            <p class="text-gray-300 mb-3 md:mb-4">
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Labore facere atque laudantium laborum repellat, aut unde incidunt sunt voluptatibus ipsam nisi cum ut ducimus debitis. A molestias ipsam quo nobis.
+            </p>
+            <p class="text-gray-300">
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Obcaecati quia porro, quasi animi sunt dolore ratione suscipit corporis rerum dolor, voluptate natus pariatur nesciunt quod quae quisquam aliquam cum rem?
+            </p>
+          </div>
+          
+          <div>
+            <h3 class="text-xl md:text-2xl font-bold mb-3 md:mb-4 text-custom-yellow">What I'm Good At</h3>
+            <ul class="space-y-2 md:space-y-3">
+              <li class="flex items-start">
+                <div class="mt-1 mr-2 md:mr-3 text-custom-blue">
+                  <i class="fas fa-check-circle text-sm md:text-base"></i>
+                </div>
+                <span class="text-gray-300 text-sm md:text-base">Clean, maintainable code with comprehensive documentation</span>
+              </li>
+              <li class="flex items-start">
+                <div class="mt-1 mr-2 md:mr-3 text-custom-blue">
+                  <i class="fas fa-check-circle text-sm md:text-base"></i>
+                </div>
+                <span class="text-gray-300 text-sm md:text-base">Performance-optimized applications that load instantly</span>
+              </li>
+              <li class="flex items-start">
+                <div class="mt-1 mr-2 md:mr-3 text-custom-blue">
+                  <i class="fas fa-check-circle text-sm md:text-base"></i>
+                </div>
+                <span class="text-gray-300 text-sm md:text-base">Pixel-perfect responsive designs that work on all devices</span>
+              </li>
+              <li class="flex items-start">
+                <div class="mt-1 mr-2 md:mr-3 text-custom-blue">
+                  <i class="fas fa-check-circle text-sm md:text-base"></i>
+                </div>
+                <span class="text-gray-300 text-sm md:text-base">Security-focused development practices to protect your data</span>
+              </li>
+            </ul>
+          </div>
+          
+          <div class="flex flex-wrap gap-3 md:gap-4">
+            <a href="#" class="btn-primary px-4 py-2 md:px-6 md:py-3 text-white font-medium rounded-lg hover:opacity-90 transition flex items-center justify-center w-full md:w-auto">
+              <i class="fas fa-download mr-2"></i> Download CV
+            </a>
+            <a href="#contact" class="btn-outline hover:bg-custom-yellow hover:text-gray-900 px-4 py-2 md:px-6 md:py-3 text-white font-medium rounded-lg transition flex items-center justify-center w-full md:w-auto">
+              <i class="fas fa-coffee mr-2"></i> Let's Grab Coffee
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Experience Section -->
+  <section id="experience" class="py-16 md:py-20 bg-[#0f0f0f]">
+    <div class="container mx-auto px-4 max-w-7xl">
+      <div class="text-center mb-12 md:mb-16 max-w-3xl mx-auto">
+        <h2 class="section-title text-3xl md:text-4xl font-bold mb-4 md:mb-6 text-custom-yellow">
+          Work Experience
+        </h2>
+        <p class="section-subtitle text-lg md:text-xl text-gray-400">
+          A showcase of my professional journey and the impact I've made
+        </p>
+      </div>
+      
+      <div class="max-w-4xl mx-auto relative pl-6 md:pl-8">
+        <!-- Experience Item 1 -->
+        <div class="timeline-item mb-8 md:mb-10">
+          <div class="bg-gray-900 border border-gray-800 rounded-xl md:rounded-2xl p-5 md:p-6 md:p-8">
+            <div class="flex flex-col md:flex-row md:justify-between md:items-start mb-3 md:mb-4">
+              <div>
+                <h3 class="text-xl md:text-2xl font-bold mb-1 text-custom-yellow">Junior Developer</h3>
+                <p class="text-custom-blue font-medium text-sm md:text-base">Microsoft</p>
+              </div>
+              <span class="text-gray-400 text-sm mt-2 md:mt-0">Jan 2025 - Present</span>
+            </div>
+            <p class="text-gray-300 mb-3 md:mb-4 text-sm md:text-base">
+              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ab corrupti consectetur illo inventore nisi? Mollitia sequi voluptatem illum tempore? Aspernatur fugiat aperiam pariatur commodi amet voluptate unde dolorem sit. Cupiditate.
+            </p>
+            <div class="flex flex-wrap gap-2">
+              <span class="px-2 py-1 md:px-3 md:py-1 bg-blue-900/30 text-blue-300 rounded-full text-xs md:text-sm">React</span>
+              <span class="px-2 py-1 md:px-3 md:py-1 bg-purple-900/30 text-purple-300 rounded-full text-xs md:text-sm">JavaScript</span>
+              <span class="px-2 py-1 md:px-3 md:py-1 bg-green-900/30 text-green-300 rounded-full text-xs md:text-sm">HTML/CSS</span>
+              <span class="px-2 py-1 md:px-3 md:py-1 bg-amber-900/30 text-amber-300 rounded-full text-xs md:text-sm">Tailwind CSS</span>
+              <span class="px-2 py-1 md:px-3 md:py-1 bg-cyan-900/30 text-cyan-300 rounded-full text-xs md:text-sm">TypeScript</span>
+              <span class="px-2 py-1 md:px-3 md:py-1 bg-custom-yellow/30 text-custom-yellow rounded-full text-xs md:text-sm">Python</span>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Experience Item 2 -->
+        <div class="timeline-item mb-8 md:mb-10">
+          <div class="bg-gray-900 border border-gray-800 rounded-xl md:rounded-2xl p-5 md:p-6 md:p-8">
+            <div class="flex flex-col md:flex-row md:justify-between md:items-start mb-3 md:mb-4">
+              <div>
+                <h3 class="text-xl md:text-2xl font-bold mb-1 text-custom-yellow">Programmer</h3>
+                <p class="text-custom-yellow font-medium text-sm md:text-base">Facebook</p>
+              </div>
+              <span class="text-gray-400 text-sm mt-2 md:mt-0">Mar 2024 - Jan 2025</span>
+            </div>
+            <p class="text-gray-300 mb-3 md:mb-4 text-sm md:text-base">
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Veniam dolorem magni accusamus, cum architecto ut, ipsum debitis aspernatur consequuntur temporibus suscipit laborum. Tempore quas eos eligendi vel amet accusamus laudantium.
+            </p>
+            <div class="flex flex-wrap gap-2">
+              <span class="px-2 py-1 md:px-3 md:py-1 bg-green-900/30 text-green-300 rounded-full text-xs md:text-sm">Python</span>
+              <span class="px-2 py-1 md:px-3 md:py-1 bg-yellow-900/30 text-yellow-300 rounded-full text-xs md:text-sm">Django</span>
+              <span class="px-2 py-1 md:px-3 md:py-1 bg-pink-900/30 text-pink-300 rounded-full text-xs md:text-sm">React</span>
+              <span class="px-2 py-1 md:px-3 md:py-1 bg-red-900/30 text-red-300 rounded-full text-xs md:text-sm">JavaScript</span>
+              <span class="px-2 py-1 md:px-3 md:py-1 bg-indigo-900/30 text-indigo-300 rounded-full text-xs md:text-sm">C++</span>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Experience Item 3 -->
+        <div class="timeline-item">
+          <div class="bg-gray-900 border border-gray-800 rounded-xl md:rounded-2xl p-5 md:p-6 md:p-8">
+            <div class="flex flex-col md:flex-row md:justify-between md:items-start mb-3 md:mb-4">
+              <div>
+                <h3 class="text-xl md:text-2xl font-bold mb-1 text-custom-yellow">UI/UX Designer</h3>
+                <p class="text-purple-400 font-medium text-sm md:text-base">Adobe Inc.</p>
+              </div>
+              <span class="text-gray-400 text-sm mt-2 md:mt-0">Jun 2023 - Feb 2024</span>
+            </div>
+            <p class="text-gray-300 mb-3 md:mb-4 text-sm md:text-base">
+              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Beatae harum officiis laudantium corporis architecto quis deleniti incidunt autem nobis similique voluptates iure, tempora ducimus at aspernatur repudiandae quo delectus id.
+            </p>
+            <div class="flex flex-wrap gap-2">
+              <span class="px-2 py-1 md:px-3 md:py-1 bg-blue-900/30 text-blue-300 rounded-full text-xs md:text-sm">Figma</span>
+              <span class="px-2 py-1 md:px-3 md:py-1 bg-amber-900/30 text-amber-300 rounded-full text-xs md:text-sm">Adobe XD</span>
+              <span class="px-2 py-1 md:px-3 md:py-1 bg-cyan-900/30 text-cyan-300 rounded-full text-xs md:text-sm">Sketch</span>
+              <span class="px-2 py-1 md:px-3 md:py-1 bg-fuchsia-900/30 text-fuchsia-300 rounded-full text-xs md:text-sm">InVision</span>
+              <span class="px-2 py-1 md:px-3 md:py-1 bg-emerald-900/30 text-emerald-300 rounded-full text-xs md:text-sm">Photoshop</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="text-center mt-10 md:mt-12">
+        <a href="#" class="inline-flex items-center px-5 py-2.5 md:px-6 md:py-3 bg-custom-blue hover:bg-[#3a70a0] text-white font-medium rounded-lg hover:opacity-90 transition text-sm md:text-base">
+          View Full Resume <i class="fas fa-arrow-right ml-2 text-xs md:text-sm"></i>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills Section - FIXED -->
+  <section id="skills" class="py-16 md:py-20 bg-[#0a0a0a]">
+    <div class="container mx-auto px-4 max-w-7xl">
+      <div class="text-center mb-12 md:mb-16 max-w-3xl mx-auto">
+        <h2 class="section-title text-3xl md:text-4xl font-bold mb-4 md:mb-6 text-custom-yellow">
+          Technical Skills
+        </h2>
+        <p class="section-subtitle text-lg md:text-xl text-gray-400">
+          A snapshot of my expertise and the technologies I excel at
+        </p>
+      </div>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 mb-12 md:mb-16">
+        <!-- Frontend -->
+        <div class="project-card p-5 md:p-6">
+          <div class="flex items-center mb-4 md:mb-5">
+            <div class="w-10 h-10 md:w-12 md:h-12 rounded-xl bg-blue-900/30 flex items-center justify-center mr-3 md:mr-4">
+              <i class="fas fa-laptop-code text-blue-400 text-xl md:text-2xl"></i>
+            </div>
+            <h3 class="text-xl md:text-2xl font-bold text-custom-yellow">Frontend Development</h3>
+          </div>
+          <div class="space-y-3 md:space-y-4">
+            <div>
+              <div class="flex justify-between mb-1 text-xs md:text-sm">
+                <span class="text-gray-300">JavaScript</span>
+                <span class="text-gray-400">95%</span>
+              </div>
+              <div class="skill-bar">
+                <div class="skill-progress" data-width="95%"></div>
+              </div>
+            </div>
+            <div>
+              <div class="flex justify-between mb-1 text-xs md:text-sm">
+                <span class="text-gray-300">TypeScript</span>
+                <span class="text-gray-400">90%</span>
+              </div>
+              <div class="skill-bar">
+                <div class="skill-progress" data-width="90%"></div>
+              </div>
+            </div>
+            <div>
+              <div class="flex justify-between mb-1 text-xs md:text-sm">
+                <span class="text-gray-300">React</span>
+                <span class="text-gray-400">85%</span>
+              </div>
+              <div class="skill-bar">
+                <div class="skill-progress" data-width="85%"></div>
+              </div>
+            </div>
+            <div>
+              <div class="flex justify-between mb-1 text-xs md:text-sm">
+                <span class="text-gray-300">HTML5/CSS & Tailwind</span>
+                <span class="text-gray-400">95%</span>
+              </div>
+              <div class="skill-bar">
+                <div class="skill-progress" data-width="95%"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Backend -->
+        <div class="project-card p-5 md:p-6">
+          <div class="flex items-center mb-4 md:mb-5">
+            <div class="w-10 h-10 md:w-12 md:h-12 rounded-xl bg-purple-900/30 flex items-center justify-center mr-3 md:mr-4">
+              <i class="fas fa-server text-purple-400 text-xl md:text-2xl"></i>
+            </div>
+            <h3 class="text-xl md:text-2xl font-bold text-custom-yellow">Backend Development</h3>
+          </div>
+          <div class="space-y-3 md:space-y-4">
+            <div>
+              <div class="flex justify-between mb-1 text-xs md:text-sm">
+                <span class="text-gray-300">JavaScript & Node.js</span>
+                <span class="text-gray-400">90%</span>
+              </div>
+              <div class="skill-bar">
+                <div class="skill-progress" data-width="90%"></div>
+              </div>
+            </div>
+            <div>
+              <div class="flex justify-between mb-1 text-xs md:text-sm">
+                <span class="text-gray-300">Python & Django</span>
+                <span class="text-gray-400">95%</span>
+              </div>
+              <div class="skill-bar">
+                <div class="skill-progress" data-width="95%"></div>
+              </div>
+            </div>
+            <div>
+              <div class="flex justify-between mb-1 text-xs md:text-sm">
+                <span class="text-gray-300">PHP & Laravel</span>
+                <span class="text-gray-400">95%</span>
+              </div>
+              <div class="skill-bar">
+                <div class="skill-progress" data-width="95%"></div>
+              </div>
+            </div>
+            <div>
+              <div class="flex justify-between mb-1 text-xs md:text-sm">
+                <span class="text-gray-300">PostgreSQL</span>
+                <span class="text-gray-400">80%</span>
+              </div>
+              <div class="skill-bar">
+                <div class="skill-progress" data-width="80%"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- DevOps & Tools -->
+        <div class="project-card p-5 md:p-6">
+          <div class="flex items-center mb-4 md:mb-5">
+            <div class="w-10 h-10 md:w-12 md:h-12 rounded-xl bg-amber-900/30 flex items-center justify-center mr-3 md:mr-4">
+              <i class="fas fa-tools text-amber-400 text-xl md:text-2xl"></i>
+            </div>
+            <h3 class="text-xl md:text-2xl font-bold text-custom-yellow">UI/UX Design</h3>
+          </div>
+          <div class="space-y-3 md:space-y-4">
+            <div>
+              <div class="flex justify-between mb-1 text-xs md:text-sm">
+                <span class="text-gray-300">Figma</span>
+                <span class="text-gray-400">90%</span>
+              </div>
+              <div class="skill-bar">
+                <div class="skill-progress" data-width="90%"></div>
+              </div>
+            </div>
+            <div>
+              <div class="flex justify-between mb-1 text-xs md:text-sm">
+                <span class="text-gray-300">Adobe XD</span>
+                <span class="text-gray-400">85%</span>
+              </div>
+              <div class="skill-bar">
+                <div class="skill-progress" data-width="85%"></div>
+              </div>
+            </div>
+            <div>
+              <div class="flex justify-between mb-1 text-xs md:text-sm">
+                <span class="text-gray-300">Illustrator</span>
+                <span class="text-gray-400">90%</span>
+              </div>
+              <div class="skill-bar">
+                <div class="skill-progress" data-width="90%"></div>
+              </div>
+            </div>
+            <div>
+              <div class="flex justify-between mb-1 text-xs md:text-sm">
+                <span class="text-gray-300">Photoshop</span>
+                <span class="text-gray-400">85%</span>
+              </div>
+              <div class="skill-bar">
+                <div class="skill-progress" data-width="85%"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="text-center">
+        <div class="inline-block bg-gray-900 border border-gray-800 rounded-xl md:rounded-2xl p-5 md:p-6 max-w-4xl mx-auto">
+          <div class="flex flex-col sm:flex-row items-center justify-center gap-6 md:gap-8">
+            <div class="text-center">
+              <div class="text-4xl md:text-5xl font-bold text-custom-blue mb-1 md:mb-2">100%</div>
+              <p class="text-gray-400 text-sm md:text-base">Code Quality</p>
+            </div>
+            <div class="w-12 h-px bg-gray-800 hidden sm:block"></div>
+            <div class="text-center">
+              <div class="text-4xl md:text-5xl font-bold text-custom-yellow mb-1 md:mb-2">24/7</div>
+              <p class="text-gray-400 text-sm md:text-base">Support</p>
+            </div>
+            <div class="w-12 h-px bg-gray-800 hidden sm:block"></div>
+            <div class="text-center">
+              <div class="text-4xl md:text-5xl font-bold text-green-400 mb-1 md:mb-2">100%</div>
+              <p class="text-gray-400 text-sm md:text-base">Smooth Performance</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section id="projects" class="py-16 md:py-20 bg-[#151515]">
+    <div class="container mx-auto px-4 max-w-7xl">
+      <div class="text-center mb-12 md:mb-16 max-w-3xl mx-auto">
+        <h2 class="section-title text-3xl md:text-4xl font-bold mb-4 md:mb-6 text-custom-yellow">
+          My Projects
+        </h2>
+        <p class="section-subtitle text-lg md:text-xl text-gray-400">
+          A selection of my most impactful and innovative projects
+        </p>
+      </div>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 mb-12 md:mb-16">
+        <!-- Project 1 -->
+        <div class="project-card p-5 md:p-6 cursor-pointer">
+          <div class="flex justify-between items-start mb-3 md:mb-4">
+            <div>
+              <span class="inline-block px-2 py-1 md:px-3 md:py-1 bg-blue-900/50 text-blue-300 rounded-full text-xs md:text-sm font-medium">JavaScript</span>
+              <span class="inline-block px-2 py-1 md:px-3 md:py-1 bg-purple-900/50 text-purple-300 rounded-full text-xs md:text-sm font-medium ml-1 md:ml-2 mt-1 md:mt-0">Node.js</span>
+            </div>
+            <div class="text-yellow-400 flex text-sm">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+          </div>
+          <div class="bg-gray-800 border-2 border-dashed rounded-lg md:rounded-xl h-40 md:h-48 mb-3 md:mb-4 flex items-center justify-center overflow-hidden relative">
+            <div class="absolute inset-0 bg-grid opacity-20"></div>
+            <div class="relative z-10 text-center">
+              <div class="text-blue-400 text-4xl md:text-6xl mb-1 md:mb-2">
+                <i class="fas fa-server"></i>
+              </div>
+              <p class="text-gray-400 text-xs md:text-sm">with great backend</p>
+            </div>
+          </div>
+          <h3 class="text-xl md:text-2xl font-bold mb-1 md:mb-2 text-custom-yellow">Backend Services</h3>
+          <p class="text-gray-400 text-sm md:text-base mb-3 md:mb-4">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Odit minus rem impedit dignissimos nihil assumenda ipsam quo consequatur, excepturi tenetur, commodi doloribus nulla ipsum eos iste vel dolore magnam eveniet?</p>
+          <div class="flex flex-wrap gap-1 md:gap-2 mb-3 md:mb-4">
+            <span class="px-2 py-1 bg-gray-800 text-blue-300 rounded-full text-xs md:text-sm">Node.js</span>
+            <span class="px-2 py-1 bg-gray-800 text-green-300 rounded-full text-xs md:text-sm">Express.js</span>
+            <span class="px-2 py-1 bg-gray-800 text-purple-300 rounded-full text-xs md:text-sm">REST API</span>
+            <span class="px-2 py-1 bg-gray-800 text-amber-300 rounded-full text-xs md:text-sm">MongoDB</span>
+          </div>
+          <div class="mt-3 pt-3 md:mt-4 md:pt-4 border-t border-gray-800 flex justify-between items-center">
+            <span class="text-xs md:text-sm text-gray-500">Team Project • 2025</span>
+            <button class="text-custom-blue hover:text-blue-300 transition text-xs md:text-sm flex items-center">
+              View Details <i class="fas fa-arrow-right ml-1 text-xs"></i>
+            </button>
+          </div>
+        </div>
+        
+        <!-- Project 2 -->
+        <div class="project-card p-5 md:p-6 cursor-pointer">
+          <div class="flex justify-between items-start mb-3 md:mb-4">
+            <div>
+              <span class="inline-block px-2 py-1 md:px-3 md:py-1 bg-green-900/50 text-green-300 rounded-full text-xs md:text-sm font-medium">Django</span>
+              <span class="inline-block px-2 py-1 md:px-3 md:py-1 bg-yellow-900/50 text-yellow-300 rounded-full text-xs md:text-sm font-medium ml-1 md:ml-2 mt-1 md:mt-0">React</span>
+            </div>
+            <div class="text-yellow-400 flex text-sm">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="far fa-star"></i>
+            </div>
+          </div>
+          <div class="bg-gray-800 border-2 border-dashed rounded-lg md:rounded-xl h-40 md:h-48 mb-3 md:mb-4 flex items-center justify-center overflow-hidden relative">
+            <div class="absolute inset-0 bg-grid opacity-20"></div>
+            <div class="relative z-10 text-center">
+              <div class="text-green-400 text-4xl md:text-6xl mb-1 md:mb-2">
+                <i class="fas fa-chart-line"></i>
+              </div>
+              <p class="text-gray-400 text-xs md:text-sm">best management system</p>
+            </div>
+          </div>
+          <h3 class="text-xl md:text-2xl font-bold mb-1 md:mb-2 text-custom-yellow">University Management System</h3>
+          <p class="text-gray-400 text-sm md:text-base mb-3 md:mb-4">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sed numquam exercitationem eveniet excepturi nam consectetur id soluta laborum illo? Quibusdam, consectetur! Perspiciatis sit reiciendis distinctio voluptatum aut, recusandae magni vel?</p>
+          <div class="flex flex-wrap gap-1 md:gap-2 mb-3 md:mb-4">
+            <span class="px-2 py-1 bg-gray-800 text-cyan-300 rounded-full text-xs md:text-sm">TypeScript</span>
+            <span class="px-2 py-1 bg-gray-800 text-amber-300 rounded-full text-xs md:text-sm">Tailwind CSS</span>
+            <span class="px-2 py-1 bg-gray-800 text-emerald-300 rounded-full text-xs md:text-sm">Django</span>
+            <span class="px-2 py-1 bg-gray-800 text-indigo-300 rounded-full text-xs md:text-sm">PostgreSQL</span>
+          </div>
+          <div class="mt-3 pt-3 md:mt-4 md:pt-4 border-t border-gray-800 flex justify-between items-center">
+            <span class="text-xs md:text-sm text-gray-500">Solo Project • 2025</span>
+            <button class="text-custom-blue hover:text-blue-300 transition text-xs md:text-sm flex items-center">
+              View Details <i class="fas fa-arrow-right ml-1 text-xs"></i>
+            </button>
+          </div>
+        </div>
+        
+        <!-- Project 3 -->
+        <div class="project-card p-5 md:p-6 cursor-pointer">
+          <div class="flex justify-between items-start mb-3 md:mb-4">
+            <div>
+              <span class="inline-block px-2 py-1 md:px-3 md:py-1 bg-pink-900/50 text-pink-300 rounded-full text-xs md:text-sm font-medium">Figma</span>
+              <span class="inline-block px-2 py-1 md:px-3 md:py-1 bg-indigo-900/50 text-indigo-300 rounded-full text-xs md:text-sm font-medium ml-1 md:ml-2 mt-1 md:mt-0">Adobe xd</span>
+            </div>
+            <div class="text-yellow-400 flex text-sm">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+          </div>
+          <div class="bg-gray-800 border-2 border-dashed rounded-lg md:rounded-xl h-40 md:h-48 mb-3 md:mb-4 flex items-center justify-center overflow-hidden relative">
+            <div class="absolute inset-0 bg-grid opacity-20"></div>
+            <div class="relative z-10 text-center">
+              <div class="text-pink-400 text-4xl md:text-6xl mb-1 md:mb-2">
+                <i class="fas fa-users"></i>
+              </div>
+              <p class="text-gray-400 text-xs md:text-sm">UI/UX Design for Collaborative Workspace</p>
+            </div>
+          </div>
+          <h3 class="text-xl md:text-2xl font-bold mb-1 md:mb-2 text-custom-yellow">Workspace Design</h3>
+          <p class="text-gray-400 text-sm md:text-base mb-3 md:mb-4">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Consectetur dolorem ab mollitia quidem deserunt, placeat assumenda similique ipsa optio minus numquam dicta iure perferendis blanditiis! Voluptas nemo corrupti illo consectetur.</p>
+          <div class="flex flex-wrap gap-1 md:gap-2 mb-3 md:mb-4">
+            <span class="px-2 py-1 bg-gray-800 text-fuchsia-300 rounded-full text-xs md:text-sm">Figma</span>
+            <span class="px-2 py-1 bg-gray-800 text-sky-300 rounded-full text-xs md:text-sm">Adobe XD</span>
+            <span class="px-2 py-1 bg-gray-800 text-violet-300 rounded-full text-xs md:text-sm">Illustrator</span>
+            <span class="px-2 py-1 bg-gray-800 text-rose-300 rounded-full text-xs md:text-sm">Photoshop</span>
+          </div>
+          <div class="mt-3 pt-3 md:mt-4 md:pt-4 border-t border-gray-800 flex justify-between items-center">
+            <span class="text-xs md:text-sm text-gray-500">Team Project • 2023</span>
+            <button class="text-custom-blue hover:text-blue-300 transition text-xs md:text-sm flex items-center">
+              View Details <i class="fas fa-arrow-right ml-1 text-xs"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+      
+      <div class="text-center">
+        <a href="#" class="inline-flex items-center px-6 py-3 md:px-8 md:py-4 bg-custom-blue hover:bg-[#3a70a0] text-white font-medium rounded-xl hover:opacity-90 transition duration-300 transform hover:scale-[1.03] shadow-xl text-sm md:text-base">
+          <i class="fas fa-folder-open mr-2"></i> View All Projects
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="py-16 md:py-20 bg-[#252525] relative overflow-hidden">
+    <div class="absolute inset-0 bg-grid opacity-10"></div>
+    <div class="container mx-auto px-4 max-w-4xl relative z-10">
+      <div class="text-center mb-10 md:mb-12">
+        <h2 class="section-title text-3xl md:text-4xl font-bold mb-3 md:mb-4 text-custom-yellow">Let's Build Something Amazing</h2>
+        <p class="section-subtitle text-lg md:text-xl text-gray-400 max-w-2xl mx-auto">
+          Whether you have a project in mind or just want to say hi, I'm always excited to connect and collaborate. Drop me a message and let's create something incredible together!
+        </p>
+      </div>
+      
+      <div class="bg-gray-900 rounded-xl md:rounded-2xl p-6 md:p-8 shadow-xl border border-gray-800">
+        <form id="contactForm" class="space-y-5 md:space-y-6">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
+            <div>
+              <label class="block text-sm font-medium mb-2 text-custom-yellow">Full Name <span class="text-red-500">*</span></label>
+              <input type="text" id="name" class="w-full px-3 py-2.5 md:px-4 md:py-3 bg-gray-800 border border-gray-700 rounded-lg focus:ring-2 focus:ring-custom-blue focus:border-transparent transition text-sm" placeholder="John Doe" required>
+              <p id="nameError" class="text-red-400 text-xs mt-1 hidden">Please enter your name</p>
+            </div>
+            <div>
+              <label class="block text-sm font-medium mb-2 text-custom-yellow">Email Address <span class="text-red-500">*</span></label>
+              <input type="email" id="email" class="w-full px-3 py-2.5 md:px-4 md:py-3 bg-gray-800 border border-gray-700 rounded-lg focus:ring-2 focus:ring-custom-blue focus:border-transparent transition text-sm" placeholder="john@example.com" required>
+              <p id="emailError" class="text-red-400 text-xs mt-1 hidden">Please enter a valid email</p>
+            </div>
+          </div>
+          
+          <div>
+            <label class="block text-sm font-medium mb-2 text-custom-yellow">Subject</label>
+            <input type="text" id="subject" class="w-full px-3 py-2.5 md:px-4 md:py-3 bg-gray-800 border border-gray-700 rounded-lg focus:ring-2 focus:ring-custom-blue focus:border-transparent transition text-sm" placeholder="Project Inquiry">
+          </div>
+          
+          <div>
+            <label class="block text-sm font-medium mb-2 text-custom-yellow">Project Details <span class="text-red-500">*</span></label>
+            <textarea id="message" class="w-full px-3 py-2.5 md:px-4 md:py-3 bg-gray-800 border border-gray-700 rounded-lg focus:ring-2 focus:ring-custom-blue focus:border-transparent transition min-h-[120px] md:min-h-[150px] text-sm" placeholder="Tell me about your project..." required></textarea>
+            <p id="messageError" class="text-red-400 text-xs mt-1 hidden">Please enter your message</p>
+            <p class="text-gray-500 text-xs mt-1">I typically respond within 24 hours</p>
+          </div>
+          
+          <div class="flex items-start">
+            <input type="checkbox" id="consent" class="mt-1 mr-2 h-4 w-4 text-custom-blue rounded border-gray-600 focus:ring-custom-blue" required>
+            <label for="consent" class="text-xs md:text-sm text-gray-300">
+              I agree to the <a href="#" class="text-custom-blue hover:underline">terms of service</a> and <a href="#" class="text-custom-blue hover:underline">privacy policy</a>
+            </label>
+          </div>
+          
+          <button type="submit" id="submitBtn" class="btn-primary w-full text-white font-bold py-3 px-6 rounded-lg transition duration-300 transform hover:scale-[1.02] shadow-lg flex items-center justify-center text-sm md:text-base">
+            <i class="fas fa-paper-plane mr-2"></i> Send Message
+          </button>
+          
+          <!-- <div id="formSuccess" class="hidden text-center py-6">
+            <div class="checkmark-circle mx-auto">
+              <div class="checkmark"></div>
+            </div>
+            <h3 class="text-xl md:text-2xl font-bold text-green-400 mb-2">Message Sent Successfully!</h3>
+            <p class="text-gray-300 max-w-md mx-auto text-sm md:text-base">
+              Thank you for reaching out! I've received your message and will get back to you within 24 hours. I look forward to discussing your project!
+            </p>
+            <button id="resetFormBtn" class="mt-4 md:mt-6 px-5 py-2.5 md:px-6 md:py-3 bg-gray-800 hover:bg-gray-700 text-white rounded-lg transition text-sm">
+              Send Another Message
+            </button>
+          </div> -->
+        </form>
+      </div>
+      
+      <div class="mt-12 md:mt-16 grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-8 text-center">
+        <div class="p-4 md:p-6 bg-gray-900/50 rounded-xl border border-gray-800">
+          <div class="text-3xl md:text-4xl text-custom-blue mb-2 md:mb-3">
+            <i class="fas fa-envelope"></i>
+          </div>
+          <h3 class="text-lg md:text-xl font-bold mb-1 md:mb-2 text-custom-yellow">Email</h3>
+          <p class="text-gray-400 text-sm md:text-base">latif.dev@developer.com</p>
+        </div>
+        <div class="p-4 md:p-6 bg-gray-900/50 rounded-xl border border-gray-800">
+          <div class="text-3xl md:text-4xl text-custom-yellow mb-2 md:mb-3">
+            <i class="fas fa-map-marker-alt"></i>
+          </div>
+          <h3 class="text-lg md:text-xl font-bold mb-1 md:mb-2 text-custom-yellow">Location</h3>
+          <p class="text-gray-400 text-sm md:text-base">Kabul, Afghanistan</p>
+        </div>
+        <div class="p-4 md:p-6 bg-gray-900/50 rounded-xl border border-gray-800">
+          <div class="text-3xl md:text-4xl text-purple-400 mb-2 md:mb-3">
+            <i class="fas fa-clock"></i>
+          </div>
+          <h3 class="text-lg md:text-xl font-bold mb-1 md:mb-2 text-custom-yellow">Availability</h3>
+          <p class="text-gray-400 text-sm md:text-base">Sat-Thursday, 8am-6pm </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-900 py-8 md:py-12 border-t border-gray-800">
+    <div class="container mx-auto px-4 max-w-7xl">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8 footer-grid">
+        <div class="md:col-span-1">
+          <div class="flex items-center space-x-2 mb-4">
+            <div class="w-10 h-10 rounded-full  flex items-center justify-center text-white font-bold text-lg">
+              <img src="/logo.png" alt="">
+            </div>
+            <span class="text-xl font-bold text-custom-blue hidden md:block">Laitf K. Dev. Studio</span>
+            <span class="text-xl font-bold text-custom-blue md:hidden">LK. Dev. S.</span>
+          </div>
+          <p class="text-gray-500 mb-4 text-sm md:text-base">
+            Lorem ipsum dolor sit  aliquid provident dolores magnam iure deleniti, aperiam voluptates totam cupiditate odit.
+          </p>
+          <div class="flex space-x-3 md:space-x-4">
+            <a href="https://github.com/latifkhradmand" class="w-9 h-9 md:w-10 md:h-10 rounded-full bg-gray-800 flex items-center justify-center text-gray-400 hover:text-custom-blue hover:bg-gray-700 transition">
+              <i class="fab fa-github text-sm md:text-base"></i>
+            </a>
+            <a href="https://www.linkedin.com/in/latif-khradmand-1868512b6?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" class="w-9 h-9 md:w-10 md:h-10 rounded-full bg-gray-800 flex items-center justify-center text-gray-400 hover:text-custom-blue hover:bg-gray-700 transition">
+              <i class="fab fa-linkedin-in text-sm md:text-base"></i>
+            </a>
+            <a href="https://twitter.com/latifkhradmand" class="w-9 h-9 md:w-10 md:h-10 rounded-full bg-gray-800 flex items-center justify-center text-gray-400 hover:text-custom-blue hover:bg-gray-700 transition">
+              <i class="fab fa-twitter text-sm md:text-base"></i>
+            </a>
+            <a href="https://dribbble.com/latifkhradmand" class="w-9 h-9 md:w-10 md:h-10 rounded-full bg-gray-800 flex items-center justify-center text-gray-400 hover:text-custom-blue hover:bg-gray-700 transition">
+              <i class="fab fa-dribbble text-sm md:text-base"></i>
+            </a>
+          </div>
+        </div>
+        
+        <div class="md:col-span-1">
+          <h3 class="text-lg md:text-xl font-bold mb-4 text-custom-yellow">Quick Links</h3>
+          <ul class="space-y-2 md:space-y-3">
+            <li><a href="#hero" class="text-gray-400 hover:text-white transition flex items-center text-sm md:text-base"><i class="fas fa-chevron-right text-xs mr-2 text-custom-blue"></i> Home</a></li>
+            <li><a href="#about" class="text-gray-400 hover:text-white transition flex items-center text-sm md:text-base"><i class="fas fa-chevron-right text-xs mr-2 text-custom-blue"></i> About Me</a></li>
+            <li><a href="#experience" class="text-gray-400 hover:text-white transition flex items-center text-sm md:text-base"><i class="fas fa-chevron-right text-xs mr-2 text-custom-blue"></i> Experience</a></li>
+            <li><a href="#projects" class="text-gray-400 hover:text-white transition flex items-center text-sm md:text-base"><i class="fas fa-chevron-right text-xs mr-2 text-custom-blue"></i> Projects</a></li>
+            <li><a href="#contact" class="text-gray-400 hover:text-white transition flex items-center text-sm md:text-base"><i class="fas fa-chevron-right text-xs mr-2 text-custom-blue"></i> Contact</a></li>
+          </ul>
+        </div>
+        
+        <div class="md:col-span-1">
+          <h3 class="text-lg md:text-xl font-bold mb-4 text-custom-yellow">Services</h3>
+          <ul class="space-y-2 md:space-y-3">
+            <li><a href="#" class="text-gray-400 hover:text-white transition flex items-center text-sm md:text-base"><i class="fas fa-chevron-right text-xs mr-2 text-custom-blue"></i> Web Development</a></li>
+            <li><a href="#" class="text-gray-400 hover:text-white transition flex items-center text-sm md:text-base"><i class="fas fa-chevron-right text-xs mr-2 text-custom-blue"></i> UI/UX Design</a></li>
+            <li><a href="#" class="text-gray-400 hover:text-white transition flex items-center text-sm md:text-base"><i class="fas fa-chevron-right text-xs mr-2 text-custom-blue"></i> API Development</a></li>
+          </ul>
+        </div>
+        
+        <div class="md:col-span-1">
+          <h3 class="text-lg md:text-xl font-bold mb-4 text-custom-yellow">Newsletter</h3>
+          <p class="text-gray-500 mb-3 md:mb-4 text-sm md:text-base">
+            Subscribe to get the latest updates and tech insights
+          </p>
+          <div class="flex">
+            <input type="email" placeholder="Your email" class="w-full px-3 py-2 md:px-4 md:py-2.5 bg-gray-800 border border-gray-700 rounded-l-lg focus:outline-none focus:ring-1 focus:ring-custom-blue text-sm">
+            <button class="btn-primary px-3 md:px-4 py-2 md:py-2.5 rounded-r-lg transition text-sm">
+              <i class="fas fa-arrow-right"></i>
+            </button>
+          </div>
+          <p class="text-xs text-gray-500 mt-2 md:mt-3">
+            I respect your privacy. Unsubscribe at any time.
+          </p>
+        </div>
+      </div>
+      
+      <div class="border-t border-gray-800 mt-8 md:mt-10 pt-6 md:pt-8 flex flex-col md:flex-row justify-between items-center">
+        <p class="text-gray-500 mb-3 md:mb-0 text-sm md:text-base">
+          &copy; 2025 Latif Khradmand. All rights reserved.
+        </p>
+        <div class="flex space-x-4 md:space-x-6">
+          <a href="#" class="text-gray-500 hover:text-custom-blue transition text-sm md:text-base">Privacy Policy</a>
+          <a href="#" class="text-gray-500 hover:text-custom-blue transition text-sm md:text-base">Terms of Service</a>
+          <a href="#" class="text-gray-500 hover:text-custom-blue transition text-sm md:text-base">Sitemap</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Mobile Bottom Navigation -->
+  <nav class="mobile-bottom-nav">
+    <a href="#hero" class="mobile-nav-item active">
+      <i class="fas fa-home"></i>
+      <span>Home</span>
+    </a>
+    <a href="#about" class="mobile-nav-item">
+      <i class="fas fa-user"></i>
+      <span>About</span>
+    </a>
+    <a href="#projects" class="mobile-nav-item">
+      <i class="fas fa-briefcase"></i>
+      <span>Projects</span>
+    </a>
+    <a href="#experience" class="mobile-nav-item">
+      <i class="fas fa-history"></i>
+      <span>Experience</span>
+    </a>
+    <a href="#contact" class="mobile-nav-item">
+      <i class="fas fa-envelope"></i>
+      <span>Contact</span>
+    </a>
+  </nav>
+
+  <!-- Back to Top Button -->
+  <button id="backToTop" class="back-to-top">
+    <i class="fas fa-arrow-up"></i>
+  </button>
+
+  <!-- Project Modals -->
+  <!-- <div id="project1Modal" class="modal">
+    <div class="modal-content bg-gray-900 rounded-2xl w-full max-w-4xl max-h-[90vh] overflow-y-auto p-6 md:p-8 relative">
+      <button class="modal-close">
+        <i class="fas fa-times"></i>
+      </button>
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8">
+        <div>
+          <div class="bg-gray-800 border-2 border-dashed rounded-xl h-56 md:h-64 mb-5 md:mb-6 flex items-center justify-center overflow-hidden relative">
+            <div class="absolute inset-0 bg-grid opacity-20"></div>
+            <div class="relative z-10 text-center">
+              <div class="text-blue-400 text-6xl md:text-8xl mb-2">
+                <i class="fas fa-robot"></i>
+              </div>
+              <p class="text-gray-400 text-lg">ContentForge AI Platform</p>
+            </div>
+          </div>
+          <div class="grid grid-cols-2 gap-4">
+            <div class="bg-gray-800 border border-gray-700 rounded-lg p-4 text-center">
+              <div class="text-blue-400 text-2xl md:text-3xl font-bold mb-1">98%</div>
+              <p class="text-gray-400 text-sm">User Satisfaction</p>
+            </div>
+            <div class="bg-gray-800 border border-gray-700 rounded-lg p-4 text-center">
+              <div class="text-green-400 text-2xl md:text-3xl font-bold mb-1">2.1s</div>
+              <p class="text-gray-400 text-sm">Avg. Load Time</p>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div class="flex flex-wrap gap-2 mb-4">
+            <span class="px-3 py-1 bg-blue-900/50 text-blue-300 rounded-full text-sm">TypeScript</span>
+            <span class="px-3 py-1 bg-purple-900/50 text-purple-300 rounded-full text-sm">Next.js</span>
+            <span class="px-3 py-1 bg-green-900/50 text-green-300 rounded-full text-sm">TensorFlow.js</span>
+            <span class="px-3 py-1 bg-amber-900/50 text-amber-300 rounded-full text-sm">MongoDB</span>
+            <span class="px-3 py-1 bg-cyan-900/50 text-cyan-300 rounded-full text-sm">WebSockets</span>
+            <span class="px-3 py-1 bg-pink-900/50 text-pink-300 rounded-full text-sm">Tailwind CSS</span>
+          </div>
+          <h3 class="text-2xl md:text-3xl font-bold mb-4 text-custom-yellow">ContentForge AI</h3>
+          <p class="text-gray-300 mb-4">
+            A comprehensive AI-powered content creation platform that enables teams to collaborate in real-time on content generation, editing, and publishing workflows.
+          </p>
+          <div class="space-y-3 mb-6">
+            <div class="flex items-start">
+              <div class="mt-1 mr-3 text-custom-blue">
+                <i class="fas fa-check-circle"></i>
+              </div>
+              <p class="text-gray-300">Real-time collaborative editing with operational transforms</p>
+            </div>
+            <div class="flex items-start">
+              <div class="mt-1 mr-3 text-custom-blue">
+                <i class="fas fa-check-circle"></i>
+              </div>
+              <p class="text-gray-300">AI content generation with customizable templates and style guides</p>
+            </div>
+            <div class="flex items-start">
+              <div class="mt-1 mr-3 text-custom-blue">
+                <i class="fas fa-check-circle"></i>
+              </div>
+              <p class="text-gray-300">Version history with visual diff comparisons and one-click restores</p>
+            </div>
+            <div class="flex items-start">
+              <div class="mt-1 mr-3 text-custom-blue">
+                <i class="fas fa-check-circle"></i>
+              </div>
+              <p class="text-gray-300">SEO optimization tools with real-time suggestions and analytics</p>
+            </div>
+          </div>
+          <div class="flex flex-wrap gap-4">
+            <a href="#" class="btn-primary flex items-center px-5 py-2.5 md:px-6 md:py-3 text-white rounded-lg hover:opacity-90 transition text-sm">
+              <i class="fas fa-external-link-alt mr-2"></i> Live Demo
+            </a>
+            <a href="#" class="btn-outline flex items-center px-5 py-2.5 md:px-6 md:py-3 text-white rounded-lg transition text-sm">
+              <i class="fab fa-github mr-2"></i> Source Code
+            </a>
+          </div>
+        </div>
+      </div>
+      
+      <div class="mt-8 md:mt-10 pt-6 md:pt-8 border-t border-gray-800">
+        <h4 class="text-xl font-bold mb-4 text-custom-yellow">Project Code Sample</h4>
+        <div class="code-block p-4 rounded-lg overflow-x-auto text-sm">
+          <pre class="text-gray-300"><span class="text-purple-300">const</span> <span class="text-blue-300">ContentForgeAI</span> = () => {
+  <span class="text-purple-300">const</span> [content, setContent] = <span class="text-yellow-300">useState</span>(<span class="text-green-300">''</span>);
+  <span class="text-purple-300">const</span> [isGenerating, setIsGenerating] = <span class="text-yellow-300">useState</span>(<span class="text-purple-300">false</span>);
+
+  <span class="text-purple-300">const</span> <span class="text-yellow-300">generateContent</span> = <span class="text-purple-300">async</span> () => {
+    setIsGenerating(<span class="text-purple-300">true</span>);
+    <span class="text-purple-300">const</span> response = <span class="text-purple-300">await</span> <span class="text-yellow-300">fetch</span>(<span class="text-green-300">'/api/generate'</span>, {
+      method: <span class="text-green-300">'POST'</span>,
+      headers: { <span class="text-green-300">'Content-Type'</span>: <span class="text-green-300">'application/json'</span> },
+      body: <span class="text-yellow-300">JSON</span>.<span class="text-yellow-300">stringify</span>({ prompt: content })
+    });
+    
+    <span class="text-purple-300">const</span> data = <span class="text-purple-300">await</span> response.<span class="text-yellow-300">json</span>();
+    setContent(data.generatedContent);
+    setIsGenerating(<span class="text-purple-300">false</span>);
+  };
+
+  <span class="text-purple-300">return</span> (
+    &lt;<span class="text-red-300">div</span> <span class="text-yellow-300">className</span>=<span class="text-green-300">"p-6 bg-gray-900 rounded-xl"</span>&gt;
+      &lt;<span class="text-red-300">textarea</span> 
+        <span class="text-yellow-300">value</span>={<span class="text-yellow-300">content</span>} 
+        <span class="text-yellow-300">onChange</span>={(e) =&gt; setContent(e.target.value)}
+        <span class="text-yellow-300">className</span>=<span class="text-green-300">"w-full h-48 p-4 bg-gray-800 rounded-lg mb-4"</span>
+        <span class="text-yellow-300">placeholder</span>=<span class="text-green-300">"Enter your content prompt..."</span>
+      /&gt;
+      &lt;<span class="text-red-300">button</span> 
+        <span class="text-yellow-300">onClick</span>={<span class="text-yellow-300">generateContent</span>}
+        <span class="text-yellow-300">disabled</span>={<span class="text-yellow-300">isGenerating</span>}
+        <span class="text-yellow-300">className</span>=<span class="text-green-300">"px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition"</span>
+      &gt;
+        {isGenerating ? <span class="text-green-300">'Generating...'</span> : <span class="text-green-300">'Generate with AI'</span>}
+      &lt;/<span class="text-red-300">button</span>&gt;
+    &lt;/<span class="text-red-300">div</span>&gt;
+  );
+};</pre>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="project2Modal" class="modal">
+    <div class="modal-content bg-gray-900 rounded-2xl w-full max-w-4xl max-h-[90vh] overflow-y-auto p-6 md:p-8 relative">
+      <button class="modal-close">
+        <i class="fas fa-times"></i>
+      </button>
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8">
+        <div>
+          <div class="bg-gray-800 border-2 border-dashed rounded-xl h-56 md:h-64 mb-5 md:mb-6 flex items-center justify-center overflow-hidden relative">
+            <div class="absolute inset-0 bg-grid opacity-20"></div>
+            <div class="relative z-10 text-center">
+              <div class="text-green-400 text-6xl md:text-8xl mb-2">
+                <i class="fas fa-chart-line"></i>
+              </div>
+              <p class="text-gray-400 text-lg">DataViz Studio Platform</p>
+            </div>
+          </div>
+          <div class="grid grid-cols-2 gap-4">
+            <div class="bg-gray-800 border border-gray-700 rounded-lg p-4 text-center">
+              <div class="text-green-400 text-2xl md:text-3xl font-bold mb-1">95%</div>
+              <p class="text-gray-400 text-sm">Data Accuracy</p>
+            </div>
+            <div class="bg-gray-800 border border-gray-700 rounded-lg p-4 text-center">
+              <div class="text-amber-400 text-2xl md:text-3xl font-bold mb-1">10K+</div>
+              <p class="text-gray-400 text-sm">Visualizations Created</p>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div class="flex flex-wrap gap-2 mb-4">
+            <span class="px-3 py-1 bg-green-900/50 text-green-300 rounded-full text-sm">Python</span>
+            <span class="px-3 py-1 bg-yellow-900/50 text-yellow-300 rounded-full text-sm">Flask</span>
+            <span class="px-3 py-1 bg-cyan-900/50 text-cyan-300 rounded-full text-sm">D3.js</span>
+            <span class="px-3 py-1 bg-amber-900/50 text-amber-300 rounded-full text-sm">Pandas</span>
+            <span class="px-3 py-1 bg-indigo-900/50 text-indigo-300 rounded-full text-sm">PostgreSQL</span>
+            <span class="px-3 py-1 bg-purple-900/50 text-purple-300 rounded-full text-sm">Chart.js</span>
+          </div>
+          <h3 class="text-2xl md:text-3xl font-bold mb-4 text-custom-yellow">DataViz Studio</h3>
+          <p class="text-gray-300 mb-4">
+            An interactive data visualization platform that empowers researchers and analysts to create, customize, and share complex data visualizations without writing code.
+          </p>
+          <div class="space-y-3 mb-6">
+            <div class="flex items-start">
+              <div class="mt-1 mr-3 text-custom-blue">
+                <i class="fas fa-check-circle"></i>
+              </div>
+              <p class="text-gray-300">Drag-and-drop interface for building custom visualizations</p>
+            </div>
+            <div class="flex items-start">
+              <div class="mt-1 mr-3 text-custom-blue">
+                <i class="fas fa-check-circle"></i>
+              </div>
+              <p class="text-gray-300">Support for 50+ chart types with real-time preview</p>
+            </div>
+            <div class="flex items-start">
+              <div class="mt-1 mr-3 text-custom-blue">
+                <i class="fas fa-check-circle"></i>
+              </div>
+              <p class="text-gray-300">Data import from CSV, Excel, JSON, and direct database connections</p>
+            </div>
+            <div class="flex items-start">
+              <div class="mt-1 mr-3 text-custom-blue">
+                <i class="fas fa-check-circle"></i>
+              </div>
+              <p class="text-gray-300">Export options: PNG, SVG, PDF, and interactive HTML</p>
+            </div>
+          </div>
+          <div class="flex flex-wrap gap-4">
+            <a href="#" class="btn-secondary flex items-center px-5 py-2.5 md:px-6 md:py-3 text-gray-900 rounded-lg hover:opacity-90 transition text-sm">
+              <i class="fas fa-external-link-alt mr-2"></i> Live Demo
+            </a>
+            <a href="#" class="btn-outline flex items-center px-5 py-2.5 md:px-6 md:py-3 text-white rounded-lg transition text-sm">
+              <i class="fab fa-github mr-2"></i> Source Code
+            </a>
+          </div>
+        </div>
+      </div>
+      
+      <div class="mt-8 md:mt-10 pt-6 md:pt-8 border-t border-gray-800">
+        <h4 class="text-xl font-bold mb-4 text-custom-yellow">Technical Architecture</h4>
+        <div class="bg-gray-800 rounded-lg p-5 md:p-6">
+          <div class="flex items-start mb-4">
+            <div class="mt-1 mr-3">
+              <div class="w-8 h-8 rounded-full bg-green-900 flex items-center justify-center text-green-300 font-bold">1</div>
+            </div>
+            <div>
+              <h5 class="font-bold text-lg mb-1 text-custom-yellow">Data Processing Layer</h5>
+              <p class="text-gray-300">Python backend with Pandas for data cleaning, transformation, and aggregation</p>
+            </div>
+          </div>
+          <div class="flex items-start mb-4">
+            <div class="mt-1 mr-3">
+              <div class="w-8 h-8 rounded-full bg-blue-900 flex items-center justify-center text-blue-300 font-bold">2</div>
+            </div>
+            <div>
+              <h5 class="font-bold text-lg mb-1 text-custom-yellow">API Layer</h5>
+              <p class="text-gray-300">Flask REST API with JWT authentication and rate limiting</p>
+            </div>
+          </div>
+          <div class="flex items-start">
+            <div class="mt-1 mr-3">
+              <div class="w-8 h-8 rounded-full bg-purple-900 flex items-center justify-center text-purple-300 font-bold">3</div>
+            </div>
+            <div>
+              <h5 class="font-bold text-lg mb-1 text-custom-yellow">Visualization Layer</h5>
+              <p class="text-gray-300">D3.js and Chart.js for rendering interactive, responsive visualizations</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="project3Modal" class="modal">
+    <div class="modal-content bg-gray-900 rounded-2xl w-full max-w-4xl max-h-[90vh] overflow-y-auto p-6 md:p-8 relative">
+      <button class="modal-close">
+        <i class="fas fa-times"></i>
+      </button>
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8">
+        <div>
+          <div class="bg-gray-800 border-2 border-dashed rounded-xl h-56 md:h-64 mb-5 md:mb-6 flex items-center justify-center overflow-hidden relative">
+            <div class="absolute inset-0 bg-grid opacity-20"></div>
+            <div class="relative z-10 text-center">
+              <div class="text-pink-400 text-6xl md:text-8xl mb-2">
+                <i class="fas fa-users"></i>
+              </div>
+              <p class="text-gray-400 text-lg">SyncSpace Collaboration Platform</p>
+            </div>
+          </div>
+          <div class="grid grid-cols-2 gap-4">
+            <div class="bg-gray-800 border border-gray-700 rounded-lg p-4 text-center">
+              <div class="text-purple-400 text-2xl md:text-3xl font-bold mb-1">500ms</div>
+              <p class="text-gray-400 text-sm">Avg. Latency</p>
+            </div>
+            <div class="bg-gray-800 border border-gray-700 rounded-lg p-4 text-center">
+              <div class="text-cyan-400 text-2xl md:text-3xl font-bold mb-1">10K+</div>
+              <p class="text-gray-400 text-sm">Active Users</p>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div class="flex flex-wrap gap-2 mb-4">
+            <span class="px-3 py-1 bg-pink-900/50 text-pink-300 rounded-full text-sm">Svelte</span>
+            <span class="px-3 py-1 bg-indigo-900/50 text-indigo-300 rounded-full text-sm">Go</span>
+            <span class="px-3 py-1 bg-fuchsia-900/50 text-fuchsia-300 rounded-full text-sm">WebRTC</span>
+            <span class="px-3 py-1 bg-sky-900/50 text-sky-300 rounded-full text-sm">WebSockets</span>
+            <span class="px-3 py-1 bg-violet-900/50 text-violet-300 rounded-full text-sm">JWT Auth</span>
+            <span class="px-3 py-1 bg-rose-900/50 text-rose-300 rounded-full text-sm">Redis</span>
+          </div>
+          <h3 class="text-2xl md:text-3xl font-bold mb-4 text-custom-yellow">SyncSpace</h3>
+          <p class="text-gray-300 mb-4">
+            A real-time collaborative workspace platform that enables distributed teams to work together seamlessly with document sharing, video conferencing, and task management.
+          </p>
+          <div class="space-y-3 mb-6">
+            <div class="flex items-start">
+              <div class="mt-1 mr-3 text-custom-blue">
+                <i class="fas fa-check-circle"></i>
+              </div>
+              <p class="text-gray-300">Real-time document collaboration with operational transforms</p>
+            </div>
+            <div class="flex items-start">
+              <div class="mt-1 mr-3 text-custom-blue">
+                <i class="fas fa-check-circle"></i>
+              </div>
+              <p class="text-gray-300">HD video conferencing with screen sharing and virtual backgrounds</p>
+            </div>
+            <div class="flex items-start">
+              <div class="mt-1 mr-3 text-custom-blue">
+                <i class="fas fa-check-circle"></i>
+              </div>
+              <p class="text-gray-300">Task management with Kanban boards and time tracking</p>
+            </div>
+            <div class="flex items-start">
+              <div class="mt-1 mr-3 text-custom-blue">
+                <i class="fas fa-check-circle"></i>
+              </div>
+              <p class="text-gray-300">End-to-end encryption for all communications and file transfers</p>
+            </div>
+          </div>
+          <div class="flex flex-wrap gap-4">
+            <a href="#" class="bg-gradient-to-r from-purple-600 to-pink-600 hover:opacity-90 text-white px-5 py-2.5 md:px-6 md:py-3 rounded-lg transition text-sm flex items-center justify-center">
+              <i class="fas fa-external-link-alt mr-2"></i> Live Demo
+            </a>
+            <a href="#" class="btn-outline flex items-center px-5 py-2.5 md:px-6 md:py-3 text-white rounded-lg transition text-sm">
+              <i class="fab fa-github mr-2"></i> Source Code
+            </a>
+          </div>
+        </div>
+      </div>
+      
+      <div class="mt-8 md:mt-10 pt-6 md:pt-8 border-t border-gray-800">
+        <h4 class="text-xl font-bold mb-4 text-custom-yellow">System Architecture</h4>
+        <div class="bg-gray-800 rounded-lg p-5 md:p-6">
+          <div class="flex mb-4 flex-col sm:flex-row">
+            <div class="w-full sm:w-1/3 text-center p-3 mb-4 sm:mb-0">
+              <div class="w-14 h-14 mx-auto rounded-full bg-gradient-to-br from-purple-600 to-pink-600 flex items-center justify-center text-white text-xl mb-2">
+                <i class="fas fa-user-friends"></i>
+              </div>
+              <h5 class="font-bold text-custom-yellow">Clients</h5>
+              <p class="text-gray-400 text-sm">Web & Mobile Apps</p>
+            </div>
+            <div class="w-full sm:w-1/3 text-center p-3 mb-4 sm:mb-0">
+              <div class="w-14 h-14 mx-auto rounded-full bg-gradient-to-br from-blue-600 to-cyan-600 flex items-center justify-center text-white text-xl mb-2">
+                <i class="fas fa-cloud"></i>
+              </div>
+              <h5 class="font-bold text-custom-yellow">API Gateway</h5>
+              <p class="text-gray-400 text-sm">Load Balancing</p>
+            </div>
+            <div class="w-full sm:w-1/3 text-center p-3">
+              <div class="w-14 h-14 mx-auto rounded-full bg-gradient-to-br from-amber-600 to-orange-600 flex items-center justify-center text-white text-xl mb-2">
+                <i class="fas fa-database"></i>
+              </div>
+              <h5 class="font-bold text-custom-yellow">Services</h5>
+              <p class="text-gray-400 text-sm">Microservices</p>
+            </div>
+          </div>
+          <div class="bg-gray-700/50 border border-gray-700 rounded-lg p-4 mt-4">
+            <p class="text-gray-300">
+              <span class="text-purple-400 font-bold">Frontend:</span> Svelte with TypeScript, Tailwind CSS, and WebRTC for real-time communication
+            </p>
+            <p class="text-gray-300 mt-2">
+              <span class="text-blue-400 font-bold">Backend:</span> Go microservices with gRPC for internal communication, Redis for pub/sub and caching
+            </p>
+            <p class="text-gray-300 mt-2">
+              <span class="text-amber-400 font-bold">Infrastructure:</span> Docker containers orchestrated with Kubernetes on AWS EKS
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div> -->
+
+  <script src="assets/scripts/script.js"></script>
+</body>
+</html>
+
